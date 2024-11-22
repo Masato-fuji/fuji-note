@@ -30,6 +30,8 @@ jobs:
         PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.PUBLIC_MICROCMS_SERVICE_DOMAIN }}
         PUBLIC_MICROCMS_API_KEY: ${{ secrets.PUBLIC_MICROCMS_API_KEY }}
         PUBLIC_SITE_URL: ${{ secrets.PUBLIC_SITE_URL }}
+        MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+        MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
       run: npm run build
 
     - name: Install lftp
@@ -46,3 +48,11 @@ jobs:
         mirror -R --delete -x \".htaccess\" ./dist /  # .htaccessを除外して他のファイルを同期
         bye
         " || true
+    - uses: actions/cache@v4
+      with:
+        path: |
+          ~/.npm
+          ${{ github.workspace }}/.next/cache
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
