@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.css';
+import Script from 'next/script';
 
 export default function Header() {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || '';
+
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -15,6 +18,19 @@ export default function Header() {
           priority
         />
       </Link>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
+        async
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}');
+          `}
+      </Script>
     </header>
   );
 }
