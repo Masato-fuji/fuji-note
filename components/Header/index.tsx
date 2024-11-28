@@ -8,7 +8,6 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <meta name="google-site-verification" content="wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ4" />
       <Link href="/">
         <Image
           src="/logo.png"
