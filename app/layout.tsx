@@ -18,9 +18,6 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
-  verification: {
-    google: 'wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ4',
-  },
 };
 
 type Props = {
