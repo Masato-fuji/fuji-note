@@ -18,6 +18,9 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ4',
+  },
 };
 
 type Props = {
@@ -30,12 +33,6 @@ export default async function RootLayout({ children }: Props) {
   });
   return (
     <html lang="ja">
-      <head>
-        <meta
-          name="google-site-verification"
-          content="wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ4"
-        />
-      </head>
       <body>
         <Header />
         <Nav tags={tags.contents} />
