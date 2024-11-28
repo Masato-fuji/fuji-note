@@ -18,9 +18,8 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
-  // Google Search Console用のメタタグを追加
   verification: {
-    google: 'wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ',
+    google: 'wSCNpuNC8sPyhxob_txIEIFbPxOYl4PHNN9d8rTobZ4',
   },
 };
 
