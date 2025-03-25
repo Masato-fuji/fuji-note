@@ -1,5 +1,6 @@
 import { getTagList } from '@/libs/microcms';
 import { LIMIT } from '@/constants';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
@@ -35,6 +36,7 @@ export default async function RootLayout({ children }: Props) {
         <Nav tags={tags.contents} />
         <main className={styles.main}>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
